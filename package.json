@@ -11,7 +11,24 @@
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
-  "contributes": {},
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-gitui.open",
+        "title": "Open GitUI"
+      }
+    ],
+    "configuration": {
+      "title": "GitUI Extension Settings",
+      "properties": {
+        "vscode-gitui.useWSL": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable if using GitUI via WSL (Windows only)."
+        }
+      }
+    }
+  },
   "scripts": {
     "package": "vsce package",
     "vscode:prepublish": "pnpm run compile",
