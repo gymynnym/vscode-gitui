@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { checkCommandExists } from './lib/command';
 import { ErrorMessage } from './constants/message';
-import { openGitUI } from './commands';
+import { openGitUI, reloadGitUI } from './commands';
 
 export const GITUI_COMMAND = 'gitui';
 
@@ -19,8 +19,11 @@ async function handleGitUICommand(commandFunction: () => void) {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  const disposable = vscode.commands.registerCommand('vscode-gitui.open', () => handleGitUICommand(openGitUI));
-  context.subscriptions.push(disposable);
+  const disposables = [
+    vscode.commands.registerCommand('vscode-gitui.open', () => handleGitUICommand(openGitUI)),
+    vscode.commands.registerCommand('vscode-gitui.reload', () => handleGitUICommand(reloadGitUI)),
+  ];
+  disposables.forEach((disposable) => context.subscriptions.push(disposable));
 }
 
 export function deactivate() {}

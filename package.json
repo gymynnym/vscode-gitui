@@ -16,6 +16,10 @@
       {
         "command": "vscode-gitui.open",
         "title": "Open GitUI"
+      },
+      {
+        "command": "vscode-gitui.reload",
+        "title": "Reload GitUI"
       }
     ],
     "configuration": {

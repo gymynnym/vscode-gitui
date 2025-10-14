@@ -1,3 +1,7 @@
+export const InfoMessage = {
+  GITUI_FOUND: 'gitui is available in PATH!',
+};
+
 export const ErrorMessage = {
   GITUI_NOT_FOUND: 'Cannot find gitui in PATH. Please install gitui and ensure it is available in your system PATH',
   WORKSPACE_NOT_FOUND: 'Cannot find a workspace folder. Please open a workspace',
