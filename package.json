@@ -2,7 +2,7 @@
   "name": "vscode-gitui",
   "displayName": "vscode-gitui",
   "description": "A VSCode extension to open GitUI in an integrated terminal.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "icon": "assets/icon.png",
   "license": "MIT",
   "publisher": "gymynnym",

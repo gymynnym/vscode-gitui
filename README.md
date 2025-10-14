@@ -1,6 +1,6 @@
 # vscode-gitui
 
-![screenshot](https://github.com/gymynnym/vscode-gitui/blob/master/assets/screenshot.png)
+![screenshot](./assets/screenshot.png)
 
 **A VSCode extension to open [GitUI](https://github.com/gitui-org/gitui) in an integrated terminal.**
 

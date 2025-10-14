@@ -1,6 +1,5 @@
 .vscode/**
 .vscode-test/**
-assets/screenshot.png
 src/**
 src/test/**
 .gitignore
