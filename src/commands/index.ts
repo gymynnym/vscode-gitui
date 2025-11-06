@@ -1,4 +1,4 @@
-import { openGitUI } from './open';
-import { reloadGitUI } from './reload';
+import { openGitClient } from './open';
+import { reloadGitClient } from './reload';
 
-export { openGitUI, reloadGitUI };
+export { openGitClient, reloadGitClient };

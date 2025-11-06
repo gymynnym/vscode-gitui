@@ -2,8 +2,15 @@ import * as vscode from 'vscode';
 import os from 'os';
 import { exec } from 'child_process';
 
-const commandExistsCache: Set<string> = new Set();
+const GITUI_COMMAND = 'gitui';
+const LAZYGIT_COMMAND = 'lazygit';
 
+function resolveGitCommand(): string {
+  const useLazygit = vscode.workspace.getConfiguration('vscode-gitui').get<boolean>('useLazygit', false);
+  return useLazygit ? LAZYGIT_COMMAND : GITUI_COMMAND;
+}
+
+const commandExistsCache: Set<string> = new Set();
 async function checkCommandExists(command: string): Promise<boolean> {
   if (commandExistsCache.has(command)) {
     return true;
@@ -67,4 +74,4 @@ function getShellConfig(): { shellPath: string; shellArgs: string[] } {
   return { shellPath: 'sh', shellArgs: ['-c'] };
 }
 
-export { checkCommandExists, runCommandInTerminal };
+export { resolveGitCommand, checkCommandExists, runCommandInTerminal };

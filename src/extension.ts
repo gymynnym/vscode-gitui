@@ -1,15 +1,14 @@
 import * as vscode from 'vscode';
-import { checkCommandExists } from './lib/command';
+import { checkCommandExists, resolveGitCommand } from './lib/command';
 import { ErrorMessage } from './constants/message';
-import { openGitUI, reloadGitUI } from './commands';
+import { openGitClient, reloadGitClient } from './commands';
 
-export const GITUI_COMMAND = 'gitui';
-
-async function handleGitUICommand(commandFunction: () => void) {
-  const exists = await checkCommandExists(GITUI_COMMAND);
+async function handleGitClientCommand(commandFunction: () => void) {
+  const command = resolveGitCommand();
+  const exists = await checkCommandExists(command);
   try {
     if (!exists) {
-      throw new Error(ErrorMessage.GITUI_NOT_FOUND);
+      throw new Error(ErrorMessage.COMMAND_NOT_FOUND(command));
     }
     return commandFunction();
   } catch (error) {
@@ -20,8 +19,8 @@ async function handleGitUICommand(commandFunction: () => void) {
 
 export function activate(context: vscode.ExtensionContext) {
   const disposables = [
-    vscode.commands.registerCommand('vscode-gitui.open', () => handleGitUICommand(openGitUI)),
-    vscode.commands.registerCommand('vscode-gitui.reload', () => handleGitUICommand(reloadGitUI)),
+    vscode.commands.registerCommand('vscode-gitui.open', () => handleGitClientCommand(openGitClient)),
+    vscode.commands.registerCommand('vscode-gitui.reload', () => handleGitClientCommand(reloadGitClient)),
   ];
   disposables.forEach((disposable) => context.subscriptions.push(disposable));
 }

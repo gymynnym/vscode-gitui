@@ -41,6 +41,11 @@
           "type": "boolean",
           "default": false,
           "description": "Enable if using GitUI via WSL (Windows only)."
+        },
+        "vscode-gitui.useLazygit": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable if you want to use Lazygit instead of GitUI."
         }
       }
     },

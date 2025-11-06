@@ -1,9 +1,10 @@
 export const InfoMessage = {
-  GITUI_FOUND: 'gitui is available in PATH!',
+  COMMAND_FOUND: (command: string) => `${command} is available in PATH!`,
 };
 
 export const ErrorMessage = {
-  GITUI_NOT_FOUND: 'Cannot find gitui in PATH. Please install gitui and ensure it is available in your system PATH',
+  COMMAND_NOT_FOUND: (command: string) =>
+    `Cannot find ${command} in PATH. Please install ${command} and ensure it is available in your system PATH`,
   WORKSPACE_NOT_FOUND: 'Cannot find a workspace folder. Please open a workspace',
   UNKNOWN: 'An unknown error occurred',
 };

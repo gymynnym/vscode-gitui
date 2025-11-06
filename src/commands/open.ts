@@ -1,13 +1,13 @@
 import * as vscode from 'vscode';
 import { ErrorMessage } from '../constants/message';
-import { runCommandInTerminal } from '../lib/command';
-import { GITUI_COMMAND } from '../extension';
+import { resolveGitCommand, runCommandInTerminal } from '../lib/command';
 
-async function openGitUI() {
+async function openGitClient() {
   const workspace = await getCurrentWorkspace();
+  const command = resolveGitCommand();
   if (workspace) {
-    runCommandInTerminal(GITUI_COMMAND, {
-      name: GITUI_COMMAND,
+    runCommandInTerminal(command, {
+      name: command,
       cwd: workspace,
       location: vscode.TerminalLocation.Editor,
     });
@@ -30,4 +30,4 @@ async function getCurrentWorkspace(): Promise<string | undefined> {
   return pickedWorkspace?.uri.fsPath;
 }
 
-export { openGitUI };
+export { openGitClient };

@@ -1,15 +1,15 @@
 import * as vscode from 'vscode';
-import { GITUI_COMMAND } from '../extension';
-import { checkCommandExists } from '../lib/command';
-import { InfoMessage, ErrorMessage } from '../constants/message';
+import { checkCommandExists, resolveGitCommand } from '../lib/command';
+import { ErrorMessage, InfoMessage } from '../constants/message';
 
-async function reloadGitUI() {
-  const exists = await checkCommandExists(GITUI_COMMAND);
+async function reloadGitClient() {
+  const command = resolveGitCommand();
+  const exists = await checkCommandExists(command);
   if (exists) {
-    vscode.window.showInformationMessage(InfoMessage.GITUI_FOUND);
+    vscode.window.showInformationMessage(InfoMessage.COMMAND_FOUND(command));
   } else {
-    vscode.window.showErrorMessage(ErrorMessage.GITUI_NOT_FOUND);
+    vscode.window.showErrorMessage(ErrorMessage.COMMAND_NOT_FOUND(command));
   }
 }
 
-export { reloadGitUI };
+export { reloadGitClient };
