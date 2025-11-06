@@ -2,12 +2,12 @@
 
 ![screenshot](./assets/screenshot.png)
 
-**A VSCode extension to open [GitUI](https://github.com/gitui-org/gitui) in an integrated terminal.**
+**A VSCode extension to open [GitUI](https://github.com/gitui-org/gitui) and [Lazygit](https://github.com/jesseduffield/lazygit) in an integrated terminal.**
 
 ### Installation
 
 > [!IMPORTANT]
-> Requires [GitUI](https://github.com/gitui-org/gitui) to be installed and available on your PATH.
+> Requires [GitUI](https://github.com/gitui-org/gitui) or [Lazygit](https://github.com/jesseduffield/lazygit) to be installed and available on your PATH.
 
 There are 2 ways to install this extension:
 
@@ -16,15 +16,15 @@ There are 2 ways to install this extension:
 
 ### Commands
 
-- `vscode-gitui.open` : Open GitUI in terminal
-- `vscode-gitui.reload` : Reload GitUI on PATH
+- `vscode-gitui.open` : Open GitUI/Lazygit in terminal
+- `vscode-gitui.reload` : Reload GitUI/Lazygit on PATH
 
 ### Keybindings
 
 #### Default Keybindings
 
-- `ctrl+alt+g` : Open GitUI (Linux/Windows)
-- `ctrl+cmd+g` : Open GitUI (macOS)
+- `ctrl+alt+g` : Open GitUI/Lazygit (Linux/Windows)
+- `ctrl+cmd+g` : Open GitUI/Lazygit (macOS)
 
 #### VSCodeVim Keybindings: for nerds (Example)
 
@@ -46,3 +46,4 @@ There are 2 ways to install this extension:
 ### Properties
 
 - `vscode-gitui.useWSL` : Enable if using GitUI via WSL (Windows only).
+- `vscode-gitui.useLazygit` : Enable if you want to use Lazygit instead of GitUI.

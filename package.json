@@ -1,8 +1,8 @@
 {
   "name": "vscode-gitui",
   "displayName": "vscode-gitui",
-  "description": "A VSCode extension to open GitUI in an integrated terminal.",
-  "version": "0.1.1",
+  "description": "A VSCode extension to open GitUI/Lazygit in an integrated terminal.",
+  "version": "0.2.0",
   "icon": "assets/icon.png",
   "license": "MIT",
   "publisher": "gymynnym",
@@ -29,15 +29,15 @@
     "commands": [
       {
         "command": "vscode-gitui.open",
-        "title": "Open GitUI"
+        "title": "Open GitUI/Lazygit"
       },
       {
         "command": "vscode-gitui.reload",
-        "title": "Reload GitUI"
+        "title": "Reload GitUI/Lazygit"
       }
     ],
     "configuration": {
-      "title": "GitUI Extension Settings",
+      "title": "vscode-gitui",
       "properties": {
         "vscode-gitui.useWSL": {
           "type": "boolean",

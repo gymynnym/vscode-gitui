@@ -1,5 +1,13 @@
 # Change Log
 
+### v0.2.0
+
+- Support **Lazygit** as an alternative to GitUI
+- Add **auto-reload** on configuration changes
+- Add **auto-detection** of git projects for activation
+- Add new configuration property
+  - `vscode-gitui.useLazygit`: Enable if you want to use Lazygit instead of GitUI
+
 ### v0.1.1
 
 - Include screenshot in package
