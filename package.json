@@ -21,7 +21,9 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "workspaceContains:.git"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
