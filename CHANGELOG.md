@@ -1,5 +1,9 @@
 # Change Log
 
+### v0.2.1
+
+- Prevent Python environment auto-activation in terminal
+
 ### v0.2.0
 
 - Support **Lazygit** as an alternative to GitUI

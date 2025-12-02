@@ -2,6 +2,9 @@
 
 ![screenshot](./assets/screenshot.png)
 
+[![GitHub Release](https://img.shields.io/github/v/release/gymynnym/vscode-gitui?logo=github&color=blue)](https://github.com/gymynnym/vscode-gitui/releases/latest)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/gymynnym.vscode-gitui?label=installs)](https://marketplace.visualstudio.com/items?itemName=gymynnym.vscode-gitui)
+
 **A VSCode extension to open [GitUI](https://github.com/gitui-org/gitui) and [Lazygit](https://github.com/jesseduffield/lazygit) in an integrated terminal.**
 
 ### Installation
@@ -18,6 +21,9 @@ There are 2 ways to install this extension:
 
 - `vscode-gitui.open` : Open GitUI/Lazygit in terminal
 - `vscode-gitui.reload` : Reload GitUI/Lazygit on PATH
+
+> [!WARNING]
+> When running `vscode-gitui.open` in a Python environment, the extension temporarily sets the `python.terminal.activateEnvironment` setting to `false` at the workspace level for better user experience. After execution, the settings is automatically restored to its original value. (If the setting is already `false`, this step is skipped.)
 
 ### Keybindings
 
@@ -45,5 +51,5 @@ There are 2 ways to install this extension:
 
 ### Properties
 
-- `vscode-gitui.useWSL` : Enable if using GitUI via WSL (Windows only).
+- `vscode-gitui.useWSL` : Enable if using GitUI/Lazygit via WSL (Windows only).
 - `vscode-gitui.useLazygit` : Enable if you want to use Lazygit instead of GitUI.
