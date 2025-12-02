@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { ErrorMessage } from '../constants/message';
-import { resolveGitCommand, runCommandInTerminal } from '../lib/command';
-import { isPythonWorkspace } from '../lib/python';
+import { resolveGitCommand, runCommandInTerminal } from '../utils/command';
+import { isPythonWorkspace } from '../utils/python';
 
 async function openGitClient() {
   const workspace = await getCurrentWorkspace();

@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { checkCommandExists, resolveGitCommand } from './lib/command';
+import { checkCommandExists, resolveGitCommand } from './utils/command';
 import { ErrorMessage } from './constants/message';
 import { openGitClient, reloadGitClient } from './commands';
 
