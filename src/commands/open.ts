@@ -4,36 +4,36 @@ import { checkCommandExists, resolveGitCommand, runCommandInTerminal } from '../
 import { isPythonWorkspace } from '../utils/python';
 
 async function openGitClient() {
-  const workspace = await getCurrentWorkspace();
   const command = resolveGitCommand();
-  const run = () =>
-    runCommandInTerminal(command, {
-      name: command,
-      cwd: workspace,
-      location: vscode.TerminalLocation.Editor,
-    });
   const commandExists = await checkCommandExists(command);
   if (!commandExists) {
     vscode.window.showErrorMessage(ErrorMessage.COMMAND_NOT_FOUND(command));
     return;
   }
 
+  const workspace = await getCurrentWorkspace();
+  const terminalOptions = {
+    name: command,
+    cwd: workspace,
+    location: vscode.TerminalLocation.Editor,
+  } satisfies vscode.TerminalOptions;
+
   if (!(await isPythonWorkspace(workspace))) {
-    await run();
-    return;
+    return runCommandInTerminal(command, terminalOptions);
   }
 
   const pythonConfig = vscode.workspace.getConfiguration('python.terminal');
   const originalActivateEnvironment = pythonConfig.get<boolean>('activateEnvironment', true);
-
+  vscode.window.showInformationMessage(
+    `Temporarily disabling 'python.terminal.activateEnvironment' ${originalActivateEnvironment} to avoid conflicts with gitui.`
+  );
   if (!originalActivateEnvironment) {
-    await run();
-    return;
+    return runCommandInTerminal(command, terminalOptions);
   }
 
   try {
     await pythonConfig.update('activateEnvironment', false, vscode.ConfigurationTarget.Workspace);
-    await run();
+    return runCommandInTerminal(command, terminalOptions);
   } finally {
     await pythonConfig.update('activateEnvironment', originalActivateEnvironment, vscode.ConfigurationTarget.Workspace);
   }
