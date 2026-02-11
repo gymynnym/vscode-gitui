@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { ErrorMessage } from '../constants/message';
-import { resolveGitCommand, runCommandInTerminal } from '../utils/command';
+import { checkCommandExists, resolveGitCommand, runCommandInTerminal } from '../utils/command';
 import { isPythonWorkspace } from '../utils/python';
 
 async function openGitClient() {
@@ -12,6 +12,11 @@ async function openGitClient() {
       cwd: workspace,
       location: vscode.TerminalLocation.Editor,
     });
+  const commandExists = await checkCommandExists(command);
+  if (!commandExists) {
+    vscode.window.showErrorMessage(ErrorMessage.COMMAND_NOT_FOUND(command));
+    return;
+  }
 
   if (!(await isPythonWorkspace(workspace))) {
     await run();
