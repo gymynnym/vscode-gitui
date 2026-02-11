@@ -1,5 +1,11 @@
 # Change Log
 
+### v0.2.2
+
+- Improve internal command handling
+- Simplify code and improve readability
+- Update extension icon
+
 ### v0.2.1
 
 - Prevent Python environment auto-activation in terminal
