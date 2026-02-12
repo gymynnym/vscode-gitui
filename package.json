@@ -2,7 +2,7 @@
   "name": "vscode-gitui",
   "displayName": "vscode-gitui",
   "description": "A VSCode extension to open GitUI/Lazygit in an integrated terminal.",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "icon": "assets/icon.png",
   "license": "MIT",
   "publisher": "gymynnym",

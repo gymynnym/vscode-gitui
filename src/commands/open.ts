@@ -24,9 +24,6 @@ async function openGitClient() {
 
   const pythonConfig = vscode.workspace.getConfiguration('python.terminal');
   const originalActivateEnvironment = pythonConfig.get<boolean>('activateEnvironment', true);
-  vscode.window.showInformationMessage(
-    `Temporarily disabling 'python.terminal.activateEnvironment' ${originalActivateEnvironment} to avoid conflicts with gitui.`
-  );
   if (!originalActivateEnvironment) {
     return runCommandInTerminal(command, terminalOptions);
   }

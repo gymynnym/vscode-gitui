@@ -1,5 +1,9 @@
 # Change Log
 
+### v0.2.3
+
+- Remove unnecessary info message
+
 ### v0.2.2
 
 - Improve internal command handling
